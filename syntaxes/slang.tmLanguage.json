@@ -1,0 +1,56 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "SLang",
+    "patterns": [
+        { "include": "#keywords" },
+        { "include": "#valueKeywords" },
+        { "include": "#functions" },
+        { "include": "#integers" },
+        { "include": "#variables" },
+        { "include": "#comments" },
+        { "include": "#strings" }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.slang",
+                    "match": "\\b(if|elseif|else|while|for|foreach|def|return|in)\\b"
+                }
+            ]
+        },
+        "functions": {
+            "name": "entity.name.function.slang",
+            "match": "\\b\\w+(?=[(])"
+        },
+        "integers": {
+            "name": "constant.numeric.integer.slang",
+            "match": "\\b\\d+\\b"
+        },
+        "variables": {
+            "name": "variable.name.slang",
+            "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        "comments": {
+            "begin": "//",
+            "end": "$",
+            "name": "comment.line.slash.slang"
+        },
+        "strings": {
+            "name": "string.quoted.double.slang",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.slang",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "valueKeywords": {
+            "name": "keyword.value.slang",
+            "match": "\\b(null|true|false)\\b"
+        }
+    },
+    "scopeName": "source.sl"
+}
